@@ -1,9 +1,12 @@
 package fedeCapiz.spV2.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
+
+import java.util.List;
 
 @Getter
 @Setter
@@ -18,4 +21,8 @@ public class User {
     private String surname;
     private String email;
     private String username;
+    @OneToMany(mappedBy = "user")
+    @JsonIgnore
+    private List<Device> devices;
+
 }

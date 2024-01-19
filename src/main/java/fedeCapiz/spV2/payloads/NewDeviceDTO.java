@@ -10,4 +10,5 @@ public record NewDeviceDTO (
     String status
     ){
 
+
 }
