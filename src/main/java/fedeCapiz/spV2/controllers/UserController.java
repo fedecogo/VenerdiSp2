@@ -13,6 +13,8 @@ import java.util.List;
 @RequestMapping("/users")
 public class UserController {
 
+
+    //findById
     @Autowired
     UserService userService;
 
@@ -28,5 +30,19 @@ public class UserController {
     public Page<User> getUser(@RequestParam (defaultValue = "0") int page,@RequestParam(defaultValue = "4")int size,@RequestParam(defaultValue = "name") String sortBy){
         return userService.getUser(page, size, sortBy);
     }
+
+    //put
+    @PutMapping("/{userId}")
+    public User findAndUpdate(@PathVariable int userId, @RequestBody User body) {
+        return userService.findByIdAndUpdate(userId, body);
+    }
+
+    //delate
+    @DeleteMapping("/{userId}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void findAndDelete(@PathVariable int userId) {
+        userService.findByIdAndDelete(userId);
+    }
+
 
 }
