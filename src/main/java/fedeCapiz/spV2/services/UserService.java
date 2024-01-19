@@ -17,6 +17,7 @@ public class UserService {
         newUser.setEmail(body.email());
         newUser.setSurname(body.surname());
         newUser.setUsername(body.userName());
+
        return userRepository.save(newUser);
     }
 
