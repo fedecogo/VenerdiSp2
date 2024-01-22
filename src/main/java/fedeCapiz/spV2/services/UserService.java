@@ -46,4 +46,7 @@ public class UserService {
         User found = this.findById(id);
         userRepository.delete(found);
     }
+    public User findByEmail(String email) throws NotFoundException {
+        return userRepository.findByEmail(email).orElseThrow(() -> new NotFoundException("Utente con email " + email + " non trovata!"));
+    }
 }

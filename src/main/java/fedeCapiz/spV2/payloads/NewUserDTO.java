@@ -14,6 +14,9 @@ public record NewUserDTO (
     @Pattern(regexp = "^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$", message = "L'email inserita non è valida")
     String email,
     @NotNull(message = "Lo username è obbligatoria")
-    String userName
-            ) {
+    String userName,
+    @NotEmpty(message = "La password è un campo obbligatorio!")
+    @Size(min = 4, message = "La password deve avere minimo 4 caratteri!")
+    String password)  {
+
 }
